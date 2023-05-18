@@ -99,8 +99,12 @@ func httpRequestCompletions(msg string, runtimes int) (*ChatGPTResponseBody, err
 	}
 
 	log.Printf("gpt request(%d) json: %s\n", runtimes, string(requestData))
-
-	req, err := http.NewRequest(http.MethodPost, "https://api.openai.com/v1/completions", bytes.NewBuffer(requestData))
+	
+	host = "https://api.openai.com"
+	if cfg.ApiHost != "" {
+		host = cfg.ApiHost
+	}
+	req, err := http.NewRequest(http.MethodPost, host + "/v1/completions", bytes.NewBuffer(requestData))
 	if err != nil {
 		return nil, fmt.Errorf("http.NewRequest error: %v", err)
 	}
