@@ -32,7 +32,6 @@
 
 ### 使用前提
 * 有openai账号，并且创建好api_key，注册事项可以参考[此文章](https://juejin.cn/post/7173447848292253704) 。
-* 应用可以参考这篇文章 [此文章](https://juejin.cn/post/7176813187705077816) 。
 * 微信必须实名认证。
 
 ### 注意事项
@@ -48,6 +47,7 @@
 # 运行项目，环境变量参考下方配置说明
 $ docker run -itd --name wechatbot --restart=always \
  -e APIKEY=换成你的key \
+ -e APIHOSY=换成你的代理服务器 \
  -e AUTO_PASS=false \
  -e SESSION_TIMEOUT=60s \
  -e MODEL=text-davinci-003 \
@@ -86,7 +86,7 @@ $ tail -f -n 50 /app/run.log
 
 ````
 # 获取项目
-$ git clone https://github.com/ZYallers/chatgpt_wechat_robot.git
+$ git clone https://github.com/online-gpt/chatgpt_wechat_robot.git
 
 # 进入项目目录
 $ cd chatgpt_wechat_robot
@@ -102,7 +102,8 @@ $ go run main.go
 
 ```json
 {
-  "api_key": "your api key",        # openai账号里设置的api_key
+  "api_key": "your api key",        # openai 账号里设置的api_key
+  "api_key": "your api host",       # openai 的代理服务器，留空默认为 https://api.openai.com
   "auto_pass": true,                # 是否自动通过好友添加
   "session_timeout": 60,            # 会话超时时间，默认60秒，单位秒，在会话时间内所有发送给机器人的信息会作为上下文
   "max_tokens": 1024,               # GPT响应字符数，最大2048，默认值512。会影响接口响应速度，字符越大响应越慢
