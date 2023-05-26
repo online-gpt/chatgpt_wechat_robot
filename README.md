@@ -31,7 +31,7 @@
 可能因为上下文累积过多。切换不同问题时，发送指令：启动时配置的`session_clear_token`字段。会清空上下文
 
 ### 使用前提
-* 有openai账号，并且创建好api_key，注册事项可以参考[此文章](https://juejin.cn/post/7173447848292253704) 。
+* 有openai账号，并且创建好api_key 。
 * 微信必须实名认证。
 
 ### 注意事项
@@ -113,7 +113,3 @@ $ go run main.go
   "session_clear_token": "清空会话"  # 会话清空口令，默认`下一个问题`
 }
 ```
-
-### 友情提示
-本项目是 fork 他人的项目来进行学习和使用，请勿商用，可以下载下来做自定义的功能。
-项目基于[openwechat](https://github.com/eatmoreapple/openwechat) 开发。
