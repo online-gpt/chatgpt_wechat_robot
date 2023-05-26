@@ -103,7 +103,7 @@ $ go run main.go
 ```json
 {
   "api_key": "your api key",        # openai 账号里设置的api_key
-  "api_key": "your api host",       # openai 的代理服务器，留空默认为 https://api.openai.com
+  "api_host": "your api host",       # openai 的代理服务器，留空默认为 https://api.openai.com
   "auto_pass": true,                # 是否自动通过好友添加
   "session_timeout": 60,            # 会话超时时间，默认60秒，单位秒，在会话时间内所有发送给机器人的信息会作为上下文
   "max_tokens": 1024,               # GPT响应字符数，最大2048，默认值512。会影响接口响应速度，字符越大响应越慢
